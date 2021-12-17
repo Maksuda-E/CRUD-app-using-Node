@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Project # 2</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="This page displays and modifies customer details">
+    <meta name="author" content="Maksuda-E Elahi">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- starting of css code for this page-->
+    <style>
+    
+    /* header design*/
+      h2{
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 14px;
+      margin-left: 15px;
+      margin-bottom: 25px;
+      }
+    
+    /* main div*/
+     .mainContainer {
+      border: 2px outset black;
+      background-color: #FFFACD;
+      max-width: 600px;
+      }
+
+    /* secondary div*/
+     .secondaryContainer {
+      border: 3px outset black;
+      text-align: left;
+      margin: 20px;
+      padding: 20px;
+      max-width: 600px;
+      }
+
+    /* label of form field */
+      label {
+      color: black;
+      font-size: medium;
+      margin-left: 20px;
+      margin-bottom: 30px;
+      }
+
+      input {
+      margin-bottom: 20px;
+      width: 200px;
+      height: 25px;
+      border-radius: 0.2px;
+      }
+     
+     /* input of customerid, firstname and lastname field*/
+      .inputDesign{
+      margin-left: 30px;
+      width: 350px;
+      }
+
+      /* input of address field*/
+      .inputA{
+      margin-left: 46px;
+      width: 350px;
+      }
+
+      /* input of city field*/
+      .inputC{
+      margin-left: 70px;
+      width: 350px;
+      }
+
+      /* input of province field */
+      .inputP{
+      margin-left: 42px;
+      width: 350px;
+      }
+
+      /* input of postal field */
+      .inputPs{
+      margin-left: 58px;
+      width: 350px;
+      }
+
+      /* Find button */
+      .findButton{
+      background-color:#0b4646;;
+      color: white;
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 10px;
+      font-weight: bold;
+      border-radius: 5px;
+      border-color: white;
+      width: 100px;
+      height: 30px;
+      margin-left: 100px;
+      }
+
+      .findButton:hover{
+      background-color: #00FFFF;
+      color: black;
+      }
+
+      /* New button */
+      .newButton {
+      background-color:#0b4646;;
+      color: white;
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 10px;
+      font-weight: bold;
+      border-radius: 5px;
+      border-color: white;
+      width: 100px;
+      height: 30px;
+      margin-right: 20px;
+      margin-left: 120px;
+      }
+
+      .newButton:hover{
+      background-color: #00FFFF;
+      color: black;
+      }
+
+      /* Add button */
+      .addButton {
+      background-color:#0b4646;;
+      color: white;
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 10px;
+      font-weight: bold;
+      border-radius: 5px;
+      border-color: white;
+      width: 100px;
+      height: 30px;
+      }
+      .addButton:hover{
+      background-color: #00FFFF;
+      color: black;
+      }
+
+      /* Update button */
+      .updateButton {
+      background-color:#0b4646;;
+      color: white;
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 10px;
+      font-weight: bold;
+      border-radius: 5px;
+      border-color: white;
+      width: 100px;
+      height: 30px;
+      margin-right: 20px;
+      margin-left: 120px;
+      }
+      .updateButton:hover{
+      background-color: #00FFFF;
+      color: black;
+      }
+
+      /* Delete button */
+      .deleteButton {
+      background-color:#0b4646;;
+      color: white;
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 10px;
+      font-weight: bold;
+      border-radius: 5px;
+      border-color: white;
+      width: 100px;
+      height: 30px;
+      }
+      
+      .deleteButton:hover{
+      background-color: #00FFFF;
+      color: black;
+      }
+    </style>
+    <!--Ending of css code-->
+  </head>
+
+  <body>
+  <div class="mainContainer">
+    <div class="secondaryContaier">
+      <!-- Starting code for finding the customer information-->
+      <h2>Find Customer Information By ID</h2>
+      <label>Customer #:</label>
+      <input type="text" id="tbFindByID" />
+      <br />
+       <!--Find button-->
+      <input class="findButton" type="button" value="Find" onclick="findCustomer()"/>
+      <hr />
+      <div id="divFindResults"></div>
+    </div>
+    <!-- End-->
+
+    <!-- Starting code for adding the customer information-->
+    <div class="secondaryContaier">
+      <h2>Add Customer Information</h2>
+      <label>Customer#:</label>
+      <input class="inputDesign" type="text" id="txtCusID" value="1" />
+      <br />
+      <label>First Name:</label>
+      <input class="inputDesign" type="text" id="txtFirst" value="Maksuda-E" />
+      <br />
+      <label>Last Name:</label>
+      <input class="inputDesign" type="text" id="txtLast" value="Elahi" />
+      <br />
+      <label>Address:</label>
+      <input class="inputA" type="text" id="txtAddress" value="3365 River Side South" />
+      <br />
+      <label>City:</label>
+      <input class="inputC" type="text" id="txtCity" value="Ottawa" />
+      <br />
+      <label>Province:</label>
+      <input class="inputP" type="text" id="txtProvince" value="Ontario" />
+      <br />
+      <label>Postal:</label>
+      <input class="inputPs" type="text" id="txtPostal" value="AS59S2" />
+      <br />
+      <!-- new button to clear the textboxes-->
+      <input class="newButton" type="button" value="New"  onclick="clearInformation()">
+      <!-- add button-->
+      <input class="addButton" type="button" value="Add"  onclick="addCustomer()">
+      <hr />
+      <div id="divAddCustomer"></div>
+    </div>
+    <!-- End-->
+  </div>
+
+  <!-- import jqueryfile-->
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+    ></script>
+
+  <!-- Starting js code to implement the following functionality-->
+  <script>
+    // define a variable to retrieve the data
+    let renderFindResults = (data) => {
+    //define a variable to convert the json string into javascript object
+      var customer = JSON.parse(data);
+    //Create html elements to appear the customer information fields for doing the update or delete
+      var myHtml = "<h2>Update/Delete Customer information</h2>";
+      myHtml += "<label>Customer#:</label>";
+      myHtml += `<input class="inputDesign" type='text' id='tbUpdateCustomerID' value='${customer.ID}' readonly style='background-color: #a8e4a0;' />`;
+      myHtml += "<br/>";
+      myHtml += "<label>First Name:</label>";
+      myHtml += `<input class="inputDesign" type='text' id='tbUpdateFirstName' value ='${customer.firstName}' />`;
+      myHtml += "<br/>";
+      myHtml += "<label>Last Name:</label>";
+      myHtml += `<input class="inputDesign" type='text' id='tbUpdateLastName' value='${customer.lastName}' />`;
+      myHtml += "<br/>";
+      myHtml += "<label>Address:</label>";
+      myHtml += `<input class="inputA" type='text' id='tbUpdateAddress' value='${customer.address}' />`;
+      myHtml += "<br/>";
+      myHtml += "<label>City:</label>";
+      myHtml += `<input class="inputC" type='text' id='tbUpdateCity' value='${customer.city}' />`;
+      myHtml += "<br/>";
+      myHtml += "<label>Province:</label>";
+      myHtml += `<input class="inputP" type='text' id='tbUpdateProvince' value='${customer.province}' />`;
+      myHtml += "<br/>";
+      myHtml += "<label>Postal:</label>";
+      myHtml += `<input class="inputPs" type='text' id='tbUpdatePostal' value='${customer.postal}' />`;
+      myHtml += "<br/>";
+      myHtml +=
+              "<input type='button' class='updateButton' value='Update' onclick='updateCustomer()' />";
+      myHtml +=
+        "<input type='button' class='deleteButton' value='Delete' onclick='confirmDelete()' />";
+      myHtml += "<hr/>";
+      document.getElementById("divFindResults").innerHTML = myHtml;
+    };
+
+    //Create findCustomer function to find the customer info according to the id
+    let findCustomer = () => {
+      //get the customer id
+      let customerID = document.getElementById("tbFindByID").value;
+      // id should integer
+      if (customerID == null || customerID == "") {
+        alert("Invalid Id! please search with the valid customer id.");
+        return;
+      }
+      //id should not support any alphabet or special character
+      if (isNaN(customerID)) {
+        alert("Id must be a numeric value");
+        return;
+      }
+      //make ajax call to run the api of find functionality
+      let findURL = "http://localhost:3000/api/findCustomerByID";
+      let params = {
+        ID: customerID,
+      };
+
+      //make an ajax POST and pass the search data according to id
+      $.ajax({
+        type: "POST",
+        url: findURL,
+        data: params,
+        success: (data, textStatus, xhr) => {
+          // Render data (response) on divFindResults
+          //document.getElementById("divFindResults").innerHTML = data;
+          renderFindResults(data);
+        },
+        statusCode: {
+          404: (xhr) => {
+            //render response on divFindResults
+            document.getElementById("divFindResults").innerHTML =
+              xhr.responseJSON;
+          },
+        },
+      });
+    };
+
+    
+    //Create updateCustomer function to update the info according to the id
+    let updateCustomer = () => {
+      var firstName = document.getElementById("tbUpdateFirstName").value;
+      var lastName = document.getElementById("tbUpdateLastName").value;
+      var address = document.getElementById("tbUpdateAddress").value;
+      var city = document.getElementById("tbUpdateCity").value;
+      var province = document.getElementById("tbUpdateProvince").value;
+      var postal = document.getElementById("tbUpdatePostal").value;
+      var customerID = document.getElementById("tbUpdateCustomerID").value;
+    
+      //make ajax call to run the api of update functionality
+      let updateURL = "http://localhost:3000/api/updateCustomer";
+      let params = {
+        firstName: firstName,
+        lastName: lastName,
+        address: address,
+        city: city,
+        province: province,
+        postal: postal,
+        ID: customerID,
+      };
+    
+      //make an ajax POST and pass update data
+      $.ajax({
+        type: "POST",
+        url: updateURL,
+        data: params,
+        success: (data, textStatus, xhr) => {
+         // Render data (response) on divFindResults
+        //document.getElementById("divFindResults").innerHTML = data;
+          document.getElementById("divFindResults").innerHTML =
+            xhr.responseJSON;
+        },
+
+        //if any error found
+        error: (request, textStatus, errorThrown) => {
+          console.error("error text status:", textStatus);
+          console.error("error thrown:", errorThrown);
+        },
+      });
+    };
+
+    //Create confirmDelete function to delete the customer information by using alert message
+    let confirmDelete = () =>{
+      let isConfirmed = confirm("Are you sure to delete ?")
+      if(isConfirmed){
+        deleteCustomer()
+      }
+    
+    }
+
+     //deleteCustomer function
+    let deleteCustomer = () =>{
+      var customerID = document.getElementById("tbUpdateCustomerID").value;
+      //make ajax call to run the api of delete functionality
+      let deleteURL = "http://localhost:3000/api/deleteCustomer";
+     
+      //make an ajax POST and delete the data
+      $.ajax({
+        type: "POST",
+        url: deleteURL,
+        data: {customerID: customerID},
+        success: (data, textStatus, xhr) => {
+          document.getElementById("divFindResults").innerHTML =
+                  xhr.responseJSON;
+        },
+
+        //if find any error
+        error: (request, textStatus, errorThrown) => {
+          console.error("error text status:", textStatus);
+          console.error("error thrown:", errorThrown);
+        },
+      });
+    }
+    
+    
+    //Create addCustomer function to add the customer information
+    let addCustomer = () => {
+      //get the values from my html
+      var firstName = document.getElementById("txtFirst").value;
+      var lastName = document.getElementById("txtLast").value;
+      var address = document.getElementById("txtAddress").value;
+      var city = document.getElementById("txtCity").value;
+      var province = document.getElementById("txtProvince").value;
+      var postal = document.getElementById("txtPostal").value;
+      var customerID = document.getElementById("txtCusID").value;
+      console.log("fn", firstName);
+      console.log("ln", lastName);
+      console.log("ad", address);
+      console.log("cty", city);
+      console.log("pro", province);
+      console.log("pos", postal);
+      console.log("cid", customerID);
+    //make ajax call to run the api of add functionality
+      let addCustomerURL = "http://localhost:3000/api/addCustomer";
+      var params = {
+       firstName: firstName,
+        lastName: lastName,
+        address: address,
+        city: city,
+        province: province,
+        postal: postal,
+        ID: customerID,
+      };
+    
+      //make an ajax POST and add new data
+      $.ajax({
+        type: "POST",
+        url: addCustomerURL,
+        data: params,
+        success: (data, textStatus, xhr) => {
+          document.getElementById("divAddCustomer").innerHTML =
+            xhr.responseJSON;
+        },
+        error: (request, textStatus, errorThrown) => {
+          console.error("error text status:", textStatus);
+          console.error("error thrown:", errorThrown);
+        },
+      });
+    };
+    
+    /* clearInformation function for find button to clear all the textboxes*/
+    function clearInformation()
+    {
+      document.getElementById("txtCusID").value = "";
+       document.getElementById("txtFirst").value = "";
+       document.getElementById("txtLast").value = "";
+       document.getElementById("txtAddress").value = "";
+       document.getElementById("txtCity").value = "";
+       document.getElementById("txtProvince").value = "";
+       document.getElementById("txtPostal").value = "";
+    }
+  </script>
+  </body>
+</html>
